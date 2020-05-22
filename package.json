@@ -1,0 +1,80 @@
+{
+  "name": "Midi-Seq",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "Cristian Scarlat",
+    "email": "78.cristi@gmail.com"
+  },
+  "license": "MIT",
+  "main": "public/electron.js",
+  "keywords": [
+    "React",
+    "Electron"
+  ],
+  "scripts": {
+    "dev": "yarn react-scripts start",
+    "build": "react-scripts build",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder build"
+  },
+  "dependencies": {
+    "electron-is-dev": "^0.3.0",
+    "electron-publisher-s3": "^20.17.2",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.32.4",
+    "react-dev-utils": "^5.0.1",
+    "wait-on": "^3.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "cross-env": "^5.2.0",
+    "electron": "^2.0.3",
+    "electron-builder": "^20.38.5",
+    "electron-devtools-installer": "^2.2.4",
+    "react-dom": "^16.7.0",
+    "react-scripts": "^3.4.1",
+    "typescript": "^3.9.3",
+    "version-bump-prompt": "^4.1.0"
+  },
+  "build": {
+    "appId": "yourappid",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
