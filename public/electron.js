@@ -8,13 +8,12 @@ let mainWindow;
 
 createWindow = () => {
 	mainWindow = new BrowserWindow({
-		backgroundColor: '#F7F7F7',
 		minWidth: 880,
 		show: false,
 		titleBarStyle: 'hidden',
 		webPreferences: {
 			nodeIntegration: false,
-			preload: __dirname + '/preload.js',
+			// preload: __dirname + '/preload.js',
 		},
 		height: 860,
 		width: 1290,
@@ -25,6 +24,8 @@ createWindow = () => {
 			? 'http://localhost:3000'
 			: `file://${path.join(__dirname, '../build/index.html')}`,
 	);
+
+	mainWindow.webContents.openDevTools();
 
 	if (isDev) {
 		const {

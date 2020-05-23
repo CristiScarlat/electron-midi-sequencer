@@ -1,0 +1,12 @@
+.dropdown-wrapper {
+    display: flex;
+    height: 4rem;
+    align-items: center;
+
+}
+
+.dropdown-label {
+    width: 6rem;
+    max-width: 6rem;
+    padding-right: 1rem;
+}

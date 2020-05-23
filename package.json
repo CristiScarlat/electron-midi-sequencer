@@ -1,5 +1,5 @@
 {
-  "name": "Midi-Seq",
+  "name": "midi_sequencer",
   "version": "1.0.0",
   "private": true,
   "author": {
@@ -20,14 +20,18 @@
     "dist": "electron-builder build"
   },
   "dependencies": {
+    "bootstrap": "^4.5.0",
     "electron-is-dev": "^0.3.0",
     "electron-publisher-s3": "^20.17.2",
     "react": "^16.4.1",
-    "react-bootstrap": "^0.32.4",
+    "react-bootstrap": "^1.0.0",
     "react-dev-utils": "^5.0.1",
     "wait-on": "^3.2.0"
   },
   "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/webmidi": "^2.0.4",
     "concurrently": "^3.6.0",
     "cross-env": "^5.2.0",
     "electron": "^2.0.3",
@@ -35,6 +39,8 @@
     "electron-devtools-installer": "^2.2.4",
     "react-dom": "^16.7.0",
     "react-scripts": "^3.4.1",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^7.0.4",
     "typescript": "^3.9.3",
     "version-bump-prompt": "^4.1.0"
   },
