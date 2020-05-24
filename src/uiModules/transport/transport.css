@@ -1,9 +1,11 @@
-.settings-wrapper {
+.transport-wrapper {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     border: 2px solid whitesmoke;
     border-radius: 10px;
     width: 400px;
     padding: 1rem;
     margin: 1rem;
-} 
+    justify-content: flex-start;
+}
+

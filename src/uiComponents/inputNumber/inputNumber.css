@@ -1,0 +1,22 @@
+.input-number-wrapper {
+    display: flex;
+    height: 4rem;
+    align-items: center;
+}
+
+.input-number {
+    width: 9rem;
+    max-width: 9rem;
+    border: 1px solid whitesmoke;
+    background: black;
+    border-radius: 5px;
+    color: whitesmoke;
+    text-align: center;
+    font-weight: 800;
+}
+
+.input-number-label {
+    width: 10rem;
+    max-width: 10rem;
+    padding-right: 1rem;
+}

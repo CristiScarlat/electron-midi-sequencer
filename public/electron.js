@@ -12,7 +12,7 @@ createWindow = () => {
 		show: false,
 		titleBarStyle: 'hidden',
 		webPreferences: {
-			nodeIntegration: false,
+			nodeIntegration: true,
 			// preload: __dirname + '/preload.js',
 		},
 		height: 860,
@@ -26,6 +26,7 @@ createWindow = () => {
 	);
 
 	mainWindow.webContents.openDevTools();
+	
 
 	if (isDev) {
 		const {
@@ -121,8 +122,8 @@ generateMenu = () => {
 		},
 	];
 
-	//Menu.setApplicationMenu(Menu.buildFromTemplate(template));
-	Menu.setApplicationMenu(null);
+	Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+	// Menu.setApplicationMenu(null);
 };
 
 app.on('ready', () => {

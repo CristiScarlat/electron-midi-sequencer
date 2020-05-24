@@ -6,7 +6,11 @@
 }
 
 .dropdown-label {
-    width: 6rem;
-    max-width: 6rem;
+    width: 10rem;
+    max-width: 10rem;
     padding-right: 1rem;
+}
+
+#dropdown-basic {
+    min-width: 9rem;
 }
