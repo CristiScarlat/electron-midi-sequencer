@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import DropdownList from '../../uiComponents/dropDown/dropDown';
-import InputNumber from '../../uiComponents/inputNumber/inputNumber';
 import './settings.css'
+import { ticker } from '../../services/tempo';
 
 export default function SettingsModule(props: any) {
     const midiInDevices = props.midiDevices.midiIn;
     const midiOutDevices = props.midiDevices.midiOut;
     const [selectedMidiInDevice, saveMidiInDevice] = useState<any>();
     const [selectedMidiOutDevice, saveMidiOutDevice] = useState<any>();
-
+    console.log(props.counter)
 
     function handleSlectedDevice(deviceName: any, deviceType: string) {
         if (deviceType === 'midiIn') {
@@ -34,22 +34,13 @@ export default function SettingsModule(props: any) {
         return items;
     }
 
-    document.addEventListener("tempo", sendMidiMsg)
-
-    function sendMidiMsg() {
-        selectedMidiOutDevice?.send([0x90, 0x3C, 0x20])
-        console.log("send midi msg");
-    }
-
     return (
         <div className="settings-wrapper">
             <div className="midi-devices">
                 <DropdownList label={"MIDI IN"} items={getMidiInDevicesList()} selectedItem={selectedMidiInDevice?.name} onSelect={(item: any) => handleSlectedDevice(item, 'midiIn')} />
                 <DropdownList label={"MIDI OUT"} items={getMidiOutDevicesList()} selectedItem={selectedMidiOutDevice?.name} onSelect={(item: any) => handleSlectedDevice(item, 'midiOut')} />
             </div>
-            <div className="settings-tempo">
-                <InputNumber />
-            </div>
+            <h1>{props.counter}</h1>
         </div>
     )
 }
