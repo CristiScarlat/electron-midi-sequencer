@@ -1,4 +1,4 @@
-import React, { DOMElement, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import Button from 'react-bootstrap/Button';
 
 interface ICustomButtonProps {

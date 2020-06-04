@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DropdownList from '../../uiComponents/dropDown/dropDown';
 import { saveMidiIn, saveMidiOut, midiIn, midiOut } from '../../services/midi';
 import './settings.css';

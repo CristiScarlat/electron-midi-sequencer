@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import React, { useEffect, useState } from 'react';
 import SettingsModule from './uiModules/settings/settings';
 import TransportBar from './uiModules/transport/transport';
 import { midiInit } from './services/midi';
@@ -11,7 +11,7 @@ let counter = 0;
 
 function App() {
   const [midiDevices, getMidiDevices] = useState<any>();
-  const [tickCounter, setTickCounter] = useState<number>();
+  const [tickCounter, setTickCounter] = useState<number>(counter);
 
   useEffect(() => {
     console.log("ComponentDidMount")
@@ -31,11 +31,15 @@ function App() {
       }
       setTickCounter(counter)
   }
-  console.log(midiDevices)
+  function resetCount() {
+    counter = 0;
+    setTickCounter(0);
+  }
+
   return (
     <div id='App'>
       {midiDevices && <SettingsModule midiDevices={midiDevices} />}
-      <TransportBar defaultTempo={60} activeStep={tickCounter}/>
+      <TransportBar defaultTempo={60} activeStep={tickCounter} callback={resetCount}/>
       <MainSeqModule activeStep={tickCounter}/>
     </div>
   );
