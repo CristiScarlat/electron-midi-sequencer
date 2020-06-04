@@ -9,10 +9,10 @@
 .input-number {
     width: 9rem;
     max-width: 9rem;
-    border: 1px solid whitesmoke;
-    background: black;
+    border: 1px solid #b9b8b8;
+    background: #241b31;
     border-radius: 5px;
-    color: whitesmoke;
+    color: #b9b8b8;
     text-align: center;
     font-weight: 800;
 }

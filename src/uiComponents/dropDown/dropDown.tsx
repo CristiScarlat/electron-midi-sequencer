@@ -10,7 +10,7 @@ type DropdownListProps = {
 }
 
 export default function DropdownList(props: DropdownListProps) {
-
+    console.log(props.selectedItem)
     return (
         <div className="dropdown-wrapper">
             <div className="dropdown-label">{props.label || ''}</div>

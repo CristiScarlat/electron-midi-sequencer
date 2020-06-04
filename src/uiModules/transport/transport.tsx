@@ -30,12 +30,14 @@ export default function TransportBar(props: ITransportBarProps) {
                 startClock()
             } else {
                 stopClock()
+                setLedState(false)
                 props.callback()
             }
 
         }
         else if (type === 'pause') {
             stopClock();
+            setLedState(false)
             setPlay(false);
         }
     }

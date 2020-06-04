@@ -6,6 +6,7 @@
 .track-label {
     width: 100px;
     max-width: 100px;
+    margin: auto;
 }
 
 .btn-group {

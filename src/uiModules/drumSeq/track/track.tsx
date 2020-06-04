@@ -19,7 +19,7 @@ export default function TrackComponent(props: ITrackProps) {
                 className="rounded mr-2 ml-2 mb-1 mt-1" 
                 size="lg" 
                 value={i}
-                style={{backgroundColor: trackData.includes(i) ? "#772323" : i%4 ? "#343a40": "rgb(75, 73, 84)"}}
+                style={{backgroundColor: trackData.includes(i) ? "rgb(45, 55, 165)" : i%4 ? "rgba(91, 169, 199, 0.72)": "rgb(29, 106, 136)"}}
                 >
                     {props.showStepNo ? i : ""}
                     {props.showLed && <LedComponent state={props.activeStep === i}/>}

@@ -5,12 +5,12 @@
 }
 
 .led-inner.on {
-    background-color: tomato;
-    border-color: tomato;
-    box-shadow: #ef8d7c 1px 1px 15px 1px;
+    background-color: #0db4da;
+    border-color: #0db4da;
+    box-shadow: #0db4da 1px 1px 15px 1px;
 }
 
 .led-inner.off {
-    background-color: red;
-    border-color: red;
+    background-color: #263256f1;
+    border-color: #263256f1;
 }
