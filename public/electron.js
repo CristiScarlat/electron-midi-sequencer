@@ -25,7 +25,7 @@ createWindow = () => {
 			: `file://${path.join(__dirname, '../build/index.html')}`,
 	);
 
-	mainWindow.webContents.openDevTools();
+	// mainWindow.webContents.openDevTools();
 	
 
 	if (isDev) {

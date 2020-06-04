@@ -2,18 +2,16 @@ import React, { useEffect, useState, ChangeEvent } from 'react';
 import SettingsModule from './uiModules/settings/settings';
 import TransportBar from './uiModules/transport/transport';
 import { midiInit } from './services/midi';
-import { generateClock, registerTask } from './services/tempo';
+import { initClock , registerTask} from './services/clock';
+import MainSeqModule from './uiModules/mainSeq/maiSeq'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-let play: boolean = false; 
-let stepCount = 0;
+
+let counter = 0;
 
 function App() {
-
   const [midiDevices, getMidiDevices] = useState<any>();
-  const [clockId, saveClockId] = useState<any>();
-  const [tempo, saveTempo] = useState<number>(60);
-  const [counter, incCounter] = useState<number>(0);
+  const [tickCounter, setTickCounter] = useState<number>();
 
   useEffect(() => {
     console.log("ComponentDidMount")
@@ -22,41 +20,23 @@ function App() {
       getMidiDevices(midiObj)
     }
     getMidi()
-    registerTask({ eventName: "tick", callback: stepCounter });
+    initClock()
+    registerTask({ eventName: "drum-seq-sync", callback: Tick })
   }, [])
 
-  function stepCounter() {
-    incCounter(stepCount++);
+  function Tick() {
+      counter++;
+      if (counter === 16) {
+          counter = 0;
+      }
+      setTickCounter(counter)
   }
-
-  function startTick() {
-    const id = generateClock(tempo);
-    saveClockId(id);
-  }
-
-  function stopTick()  {
-    clearInterval(clockId)
-    saveClockId(null);
-  }
-
-  function handleTransportButtons(type: string) {
-    if(type === 'play'){
-      incCounter(0);
-      play = !play;
-      play ? startTick() : stopTick()
-
-    }
-    else if(type === 'pause')return;
-  }
-  function handleTransportInput(type: string, value: number) {
-    console.log(type, value)
-    if(type === "tempo")saveTempo(value);
-  }
-
+  console.log(midiDevices)
   return (
     <div id='App'>
-      {midiDevices && <SettingsModule midiDevices={midiDevices} counter={counter}/>}
-      <TransportBar onChange={handleTransportInput} onClick={handleTransportButtons} play={play} defaultTempo={60}/>
+      {midiDevices && <SettingsModule midiDevices={midiDevices} />}
+      <TransportBar defaultTempo={60} activeStep={tickCounter}/>
+      <MainSeqModule activeStep={tickCounter}/>
     </div>
   );
 }

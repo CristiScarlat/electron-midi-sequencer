@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { registerTask } from '../../services/tempo'
+import React from 'react';
 import './led.css'
 
 interface ILedComponentProps {
@@ -7,20 +6,9 @@ interface ILedComponentProps {
 }
 
 export default function LedComponent(props: ILedComponentProps) {
-    const [ledState, setLedState] = useState<boolean>(false);
-    console.log("render-led-component", ledState)
-
-    useEffect(() => {
-        registerTask({ eventName: "tick", callback: ledSyncAnim });
-        console.log("mount-led-component")
-    }, [])
-    function ledSyncAnim(tick: any) {
-        setLedState(!tick);
-    }
-
     return (
         <div className="led-outer">
-            <div className={`led-inner ${ledState ? 'on' : 'off'}`} id="led" />
+            <div className={`led-inner ${props.state ? 'on' : 'off'}`} id="led" />
         </div>
     )
 }

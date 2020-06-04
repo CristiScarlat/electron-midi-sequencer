@@ -27,8 +27,9 @@
     "electron-is-dev": "^0.3.0",
     "electron-publisher-s3": "^20.17.2",
     "react": "^16.4.1",
-    "react-bootstrap": "^1.0.0",
+    "react-bootstrap": "^1.0.1",
     "react-dev-utils": "^5.0.1",
+    "tone": "^13.8.25",
     "wait-on": "^3.2.0"
   },
   "devDependencies": {

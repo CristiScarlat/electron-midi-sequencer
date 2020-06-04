@@ -27,3 +27,14 @@ export async function midiInit() {
     }
     return { midiIn: inputs, midiOut: outputs }
 }
+
+export let midiIn: IMidiDevice;
+export let midiOut: IMidiDevice;
+
+export function saveMidiIn(midiIn: IMidiDevice) {
+    midiIn = midiIn
+}
+
+export function saveMidiOut(midiOut: IMidiDevice) {
+    midiOut = midiOut
+}

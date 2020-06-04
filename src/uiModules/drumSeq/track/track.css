@@ -1,0 +1,19 @@
+.track-wrapper {
+    display: inline-flex;
+    width: 100%;
+}
+
+.track-label {
+    width: 100px;
+    max-width: 100px;
+}
+
+.btn-group {
+    width: 75%;
+    max-width: 875px;
+    min-width: 850px;
+}
+
+.step :focus {
+    background-color: grey;
+}

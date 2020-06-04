@@ -3,7 +3,7 @@ import "./inputNumber.css";
 
 interface IInputNumberProps {
     onChange: (v: number) => void
-    label: string
+    label?: string
     defaultValue: number
 }
 
@@ -13,7 +13,7 @@ export default function InputNumber(props: IInputNumberProps) {
     }
     return (
         <div className="input-number-wrapper">
-            <div className="input-number-label">{props.label}</div>
+            {props.label && <div className="input-number-label">{props.label}</div>}
             <input className="input-number" type="number" onChange={_onChange} defaultValue={props.defaultValue}/>
         </div>
     )
